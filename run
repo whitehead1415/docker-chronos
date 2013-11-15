@@ -1,0 +1,8 @@
+#!/bin/bash
+
+mesos-master &
+
+/opt/zookeeper-3.4.5/bin/zkServer.sh start-foreground &
+
+/chronos/bin/start-chronos.bash --master zk://localhost:2181/mesos --zk_hosts zk://localhost:2181/mesos
+
